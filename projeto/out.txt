@@ -1,0 +1,81 @@
+# Projeto DBT Core simplificado
+
+=== DBT VERSION ===
+
+$ /Users/davideneas/DataQuality/DBT Core/.venv/bin/dbt --version
+
+--- STDOUT ---
+Core:
+  - installed: 1.10.20
+  - latest:    1.11.7  - Update available!
+
+  Your version of dbt-core is out of date!
+  You can find instructions for upgrading here:
+  https://docs.getdbt.com/docs/installation
+
+Plugins:
+  - duckdb: 1.10.0 - Update available!
+
+  At least one plugin is out of date with dbt-core.
+  You can find instructions for upgrading here:
+  https://docs.getdbt.com/docs/installation
+
+--- STDERR ---
+/Users/davideneas/DataQuality/DBT Core/.venv/lib/python3.9/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+
+--- EXIT CODE ---
+0
+
+=== DBT DEBUG ===
+
+$ /Users/davideneas/DataQuality/DBT Core/.venv/bin/dbt debug --project-dir /Users/davideneas/DataQuality/DBT Core/projeto --profiles-dir /Users/davideneas/DataQuality/DBT Core/projeto --log-path /tmp/dbt_core_flat_logs --target-path /tmp/dbt_core_flat_target --log-level-file none
+
+--- STDOUT ---
+(no stdout)
+
+--- STDERR ---
+/Users/davideneas/DataQuality/DBT Core/.venv/lib/python3.9/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+Usage: dbt debug [OPTIONS]
+Try 'dbt debug -h' for help.
+
+Error: No such option: --target-path (Possible options: --log-path, --target)
+
+--- EXIT CODE ---
+2
+
+=== ISO RESULTADO ===
+
+Biblioteca avaliada: dbt-core com dbt-duckdb.
+Bases comparadas: Ferrovias_IBGE 2022_AL.shp x Estacoes ferroviarias.shp.
+
+Resumo rapido: 18 ferrovias, 69 estacoes, 65/69 estacoes ate 20 m da ferrovia mais proxima, 69/69 ate 100 m.
+
+ISO 1 - Completude
+SIM para a definicao conceitual.
+DESQUALIFICADA para dbt-core sob a regra sem SQL/Python custom.
+Motivo: sem imagem de referencia ou plugin pronto de deteccao de omissao.
+
+ISO 2 - Consistencia logica
+SIM para a definicao conceitual.
+DESQUALIFICADA para dbt-core sob a regra sem SQL/Python custom.
+Evidencia da base: 0 ferrovias invalidas, 0 estacoes invalidas, 21 contatos entre trechos ferroviarios.
+
+ISO 3 - Precisao posicional
+SIM para a definicao conceitual.
+DESQUALIFICADA para dbt-core sob a regra sem SQL/Python custom.
+Evidencia da base: p50=0.0 m, p90=9.63 m, p95=21.54 m, max=55.98 m.
+
+ISO 4 - Qualidade tematica
+SIM para a definicao conceitual.
+DESQUALIFICADA para dbt-core sob a regra sem SQL/Python custom.
+Evidencia da base: tipos de estacao mais comuns [('(1:Estação ferroviária de passageiros)', 56), ('(1:Desconhecido)', 12), ('(1:Outros)', 1)]; tipos de ferrovia mais comuns [('Trecho para trem', 18)].
+
+ISO 5 - Qualidade temporal
+SIM para a definicao conceitual.
+DESQUALIFICADA para dbt-core sob a regra sem SQL/Python custom.
+Evidencia da base: campos temporais explicitos nenhum; 19 estacoes com operacao 'Sim' ligadas a ferrovia 'Nao' ou 'Desconhecido'.
+
+Veredito final
+As 5 descricoes da ISO fazem sentido, mas o dbt-core nao entrega nenhuma delas pronto como biblioteca/plugin geoespacial sem codigo customizado.

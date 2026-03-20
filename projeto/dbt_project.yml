@@ -1,0 +1,5 @@
+name: 'projeto'
+version: '1.0.0'
+profile: 'projeto'
+model-paths: ["."]
+clean-targets: []
