@@ -29,21 +29,50 @@ Plugins:
 
 === DBT DEBUG ===
 
-$ /Users/davideneas/DataQuality/DBT Core/.venv/bin/dbt debug --project-dir /Users/davideneas/DataQuality/DBT Core/projeto --profiles-dir /Users/davideneas/DataQuality/DBT Core/projeto --log-path /tmp/dbt_core_flat_logs --target-path /tmp/dbt_core_flat_target --log-level-file none
+$ /Users/davideneas/DataQuality/DBT Core/.venv/bin/dbt debug --project-dir /Users/davideneas/DataQuality/DBT Core/projeto --profiles-dir /Users/davideneas/DataQuality/DBT Core/projeto --log-level-file none
 
 --- STDOUT ---
-(no stdout)
+[0m21:53:55  Running with dbt=1.10.20
+[0m21:53:55  dbt version: 1.10.20
+[0m21:53:55  python version: 3.9.6
+[0m21:53:55  python path: /Users/davideneas/DataQuality/DBT Core/.venv/bin/python3
+[0m21:53:55  os info: macOS-26.3.1-arm64-arm-64bit
+[0m21:53:55  Using profiles dir at /Users/davideneas/DataQuality/DBT Core/projeto
+[0m21:53:55  Using profiles.yml file at /Users/davideneas/DataQuality/DBT Core/projeto/profiles.yml
+[0m21:53:55  Using dbt_project.yml file at /Users/davideneas/DataQuality/DBT Core/projeto/dbt_project.yml
+[0m21:53:55  adapter type: duckdb
+[0m21:53:55  adapter version: 1.10.0
+[0m21:53:56  Configuration:
+[0m21:53:56    profiles.yml file [[32mOK found and valid[0m]
+[0m21:53:56    dbt_project.yml file [[32mOK found and valid[0m]
+[0m21:53:56  Required dependencies:
+[0m21:53:56   - git [[32mOK found[0m]
+
+[0m21:53:56  Connection:
+[0m21:53:56    database: memory
+[0m21:53:56    schema: main
+[0m21:53:56    path: :memory:
+[0m21:53:56    config_options: None
+[0m21:53:56    extensions: ['spatial']
+[0m21:53:56    settings: {}
+[0m21:53:56    external_root: .
+[0m21:53:56    use_credential_provider: None
+[0m21:53:56    attach: None
+[0m21:53:56    filesystems: None
+[0m21:53:56    remote: None
+[0m21:53:56    plugins: None
+[0m21:53:56    disable_transactions: False
+[0m21:53:56  Registered adapter: duckdb=1.10.0
+[0m21:53:57    Connection test: [[32mOK connection ok[0m]
+
+[0m21:53:57  [32mAll checks passed![0m
 
 --- STDERR ---
 /Users/davideneas/DataQuality/DBT Core/.venv/lib/python3.9/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
   warnings.warn(
-Usage: dbt debug [OPTIONS]
-Try 'dbt debug -h' for help.
-
-Error: No such option: --target-path (Possible options: --log-path, --target)
 
 --- EXIT CODE ---
-2
+0
 
 === ISO RESULTADO ===
 
